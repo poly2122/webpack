@@ -1,23 +1,16 @@
 
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require("path");
 
+const base=require('./webpack.config.base.js')
 module.exports={
-    mode:'development',
-    devtool: "inline-source-map",
-    devServer: {
-      contentBase: "./dist"
-    },
-
-    entry:'./src/index.js',
-    output:{
-        filename:'index.[contenthash].js'
-    },
-    plugins:[new HtmlWebpackPlugin({
-        title:'爱你芝芝',
-        template:'src/assets/index.html'
-    })],
+     ...base,
+     devtool: "inline-source-map",
+     devServer: {
+       contentBase: "./dist"
+     },
     module: {
         rules: [
           {
